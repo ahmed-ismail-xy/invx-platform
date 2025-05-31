@@ -176,15 +176,21 @@ public class Invoice : AggregateRoot
 
     private void RecalculateTotals()
     {
-        SubtotalMoney = _lineItems.Aggregate(Money.Zero(InvoiceCurrency), (sum, item) => sum.Add(item.ExtendedPrice));
+        SubtotalMoney = _lineItems.Aggregate(
+            Money.Zero(InvoiceCurrency),
+            (sum, item) => sum.Add(item.ExtendedPrice));
 
         TotalDiscountAmount = _lineItems
             .Where(item => item.LineDiscount != null)
-            .Aggregate(Money.Zero(InvoiceCurrency), (sum, item) => sum.Add(item.LineDiscount.DiscountAmount));
+            .Aggregate(
+            Money.Zero(InvoiceCurrency),
+            (sum, item) => sum.Add(item.LineDiscount.DiscountAmount));
 
         TotalTaxAmount = _lineItems
-            .Where(item => item.Tax != null)
-            .Aggregate(Money.Zero(InvoiceCurrency), (sum, item) => sum.Add(item.Tax.TaxAmount));
+            .Where(item => item.CalculatedTax != null)
+            .Aggregate(
+            Money.Zero(InvoiceCurrency),
+            (sum, item) => sum.Add(item.CalculatedTax.CalculatedTax));
 
         TotalMoney = SubtotalMoney
             .Subtract(TotalDiscountAmount)
