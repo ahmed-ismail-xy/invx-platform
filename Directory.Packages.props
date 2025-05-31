@@ -1,98 +1,82 @@
 ﻿<Project>
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-		<CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-	</PropertyGroup>
-
-	<ItemGroup Label="Microsoft ASP.NET Core">
-		<PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.5" />
-	</ItemGroup>
-
-	<ItemGroup Label="Microsoft Extensions">
-		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
-	</ItemGroup>
-
-	<ItemGroup Label="Development Tools">
-		<PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.8" />
-	</ItemGroup>
-
-	<ItemGroup Label="Code Analysis">
-		<PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="4.12.0" />
-		<PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.12.0" />
-		<PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0" />
-	</ItemGroup>
-
-	<ItemGroup Label="Entity Framework Core">
-		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5" />
-		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5" />
-	</ItemGroup>
-
-	<ItemGroup Label="API Documentation">
-		<PackageVersion Include="Microsoft.OpenApi" Version="1.8.2" />
-		<PackageVersion Include="Swashbuckle.AspNetCore" Version="7.2.0" />
-	</ItemGroup>
-
-	<ItemGroup Label="Health Checks">
-		<PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
-	</ItemGroup>
-
-	<ItemGroup Label="Validation">
-		<PackageVersion Include="FluentValidation" Version="11.11.0" />
-		<PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
-		<PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
-	</ItemGroup>
-
-	<ItemGroup Label="Message Bus - WARNING: Commercial License">
-		<PackageVersion Include="MassTransit" Version="8.3.4" />
-		<PackageVersion Include="MassTransit.RabbitMQ" Version="8.3.4" />
-	</ItemGroup>
-
-	<ItemGroup Label="Object Mapping - WARNING: Commercial License">
-		<PackageVersion Include="AutoMapper" Version="13.0.1" />
-		<PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-	</ItemGroup>
-
-	<ItemGroup Label="Redis Extensions">
-		<PackageVersion Include="StackExchange.Redis.Extensions.Core" Version="11.1.0" />
-		<PackageVersion Include="StackExchange.Redis.Extensions.AspNetCore" Version="11.1.0" />
-		<PackageVersion Include="StackExchange.Redis.Extensions.Newtonsoft" Version="11.1.0" />
-	</ItemGroup>
-
-	<ItemGroup Label="CQRS/Mediator - WARNING: Commercial License">
-		<PackageVersion Include="MediatR" Version="12.5.0" />
-	</ItemGroup>
-
-	<ItemGroup Label="Logging">
-		<PackageVersion Include="Serilog" Version="4.3.1" />
-		<PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
-		<PackageVersion Include="Serilog.Sinks.Seq" Version="8.0.0" />
-		<PackageVersion Include="Serilog.Sinks.Http" Version="8.0.0" />
-		<PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
-		<PackageVersion Include="Serilog.Sinks.File" Version="6.0.0">
-			<Metadata>
-				<TreatAsUsed>true</TreatAsUsed>
-			</Metadata>
-		</PackageVersion>
-		<PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
-		<PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.0" />
-		<PackageVersion Include="Serilog.Formatting.Compact" Version="3.0.0" />
-		<PackageVersion Include="Serilog.Settings.AppSettings" Version="3.0.0" />
-		<PackageVersion Include="Serilog.Settings.Configuration" Version="8.0.4" />
-	</ItemGroup>
-
-	<ItemGroup Label="Utilities">
-		<PackageVersion Include="Ardalis.GuardClauses" Version="5.0.0" />
-	</ItemGroup>
-
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup Label="Microsoft ASP.NET Core">
+    <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.5" />
+  </ItemGroup>
+  <ItemGroup Label="Microsoft Extensions">
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
+  </ItemGroup>
+  <ItemGroup Label="Development Tools">
+    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.5" />
+  </ItemGroup>
+  <ItemGroup Label="Code Analysis">
+    <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="4.12.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.12.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0" />
+  </ItemGroup>
+  <ItemGroup Label="Entity Framework Core">
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5" />
+  </ItemGroup>
+  <ItemGroup Label="API Documentation">
+    <PackageVersion Include="Microsoft.OpenApi" Version="1.8.2" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="8.1.2" />
+  </ItemGroup>
+  <ItemGroup Label="Health Checks">
+    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup Label="Validation">
+    <PackageVersion Include="FluentValidation" Version="12.0.0" />
+    <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+  </ItemGroup>
+  <ItemGroup Label="Message Bus - WARNING: Commercial License">
+    <PackageVersion Include="MassTransit" Version="8.3.4" />
+    <PackageVersion Include="MassTransit.RabbitMQ" Version="8.3.4" />
+  </ItemGroup>
+  <ItemGroup Label="Object Mapping - WARNING: Commercial License">
+    <PackageVersion Include="AutoMapper" Version="14.0.0" />
+    <PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+  <ItemGroup Label="Redis Extensions">
+    <PackageVersion Include="StackExchange.Redis.Extensions.Core" Version="11.1.0" />
+    <PackageVersion Include="StackExchange.Redis.Extensions.AspNetCore" Version="11.1.0" />
+    <PackageVersion Include="StackExchange.Redis.Extensions.Newtonsoft" Version="11.1.0" />
+  </ItemGroup>
+  <ItemGroup Label="CQRS/Mediator - WARNING: Commercial License">
+    <PackageVersion Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+  <ItemGroup Label="Logging">
+    <PackageVersion Include="Serilog" Version="4.3.1" />
+    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageVersion Include="Serilog.Sinks.Seq" Version="8.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Http" Version="8.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0">
+      <Metadata>
+        <TreatAsUsed>true</TreatAsUsed>
+      </Metadata>
+    </PackageVersion>
+    <PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+    <PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageVersion Include="Serilog.Formatting.Compact" Version="3.0.0" />
+    <PackageVersion Include="Serilog.Settings.AppSettings" Version="3.0.0" />
+    <PackageVersion Include="Serilog.Settings.Configuration" Version="8.0.4" />
+  </ItemGroup>
+  <ItemGroup Label="Utilities">
+    <PackageVersion Include="Ardalis.GuardClauses" Version="5.0.0" />
+  </ItemGroup>
 </Project>
