@@ -1,42 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Remove="Errors\InvoiceErrorExtensions.cs" />
+    <Folder Include="Services\" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <EmbeddedResource Remove="Errors\Resources\InvoicingErrors.En..resx" />
-  </ItemGroup>
-	
+
   <ItemGroup>
     <ProjectReference Include="..\..\Invx.SharedKernel\Invx.SharedKernel.Domain\Invx.SharedKernel.Domain.csproj" />
-  </ItemGroup>
-	
-  <ItemGroup>
-    <ApplicationDefinition Include="Errors\Resources\InvoicingErrors.En..resx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </ApplicationDefinition>
-  </ItemGroup>
-	
-  <ItemGroup>
-    <EmbeddedResource Include="Errors\InvoiceErrorExtensions.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-	
-  <ItemGroup>
-    <Compile Update="Errors\Resources\InvoicingResource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>InvoicingResource.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-	
-  <ItemGroup>
-    <EmbeddedResource Update="Errors\Resources\InvoicingResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>InvoicingResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

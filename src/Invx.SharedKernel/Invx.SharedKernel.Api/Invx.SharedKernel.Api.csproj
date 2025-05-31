@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Invx.SharedKernel.Application\Invx.SharedKernel.Application.csproj" />
-		<ProjectReference Include="..\Invx.SharedKernel.Domain\Invx.SharedKernel.Domain.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Invx.SharedKernel.Application\Invx.SharedKernel.Application.csproj" />
+  </ItemGroup>
 
 </Project>

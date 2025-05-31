@@ -1,14 +1,15 @@
-namespace Invx.Api;
-
-public class Program
+namespace Invx.Api
 {
-    public static void Main(string[] args)
+    public class Program
     {
-        var builder = WebApplication.CreateBuilder(args);
-        var app = builder.Build();
+        public static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
+            var app = builder.Build();
 
-        app.MapGet("/", () => "Hello World!");
+            app.MapGet("/", () => "Hello World!");
 
-        app.Run();
+            app.Run();
+        }
     }
 }

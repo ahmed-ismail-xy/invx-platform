@@ -1,6 +1,4 @@
-﻿using Ardalis.GuardClauses;
-
-namespace Invx.SharedKernel.Domain.Primitives.Errors;
+﻿namespace Invx.SharedKernel.Domain.Primitives.Errors;
 public record Error
 {
     public string Code { get; }
@@ -16,8 +14,8 @@ public record Error
         string? source = null,
         Dictionary<string, object>? metadata = null)
     {
-        Code = Guard.Against.NullOrEmpty(code);
-        Description = Guard.Against.NullOrEmpty(description);
+        Code = code;
+        Description = description;
         Type = type;
         Source = source;
         Metadata = metadata;
