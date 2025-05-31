@@ -1,5 +1,6 @@
 ﻿using Invx.Invoicing.Domain.Entities;
 using Invx.Invoicing.Domain.Enums;
+using Invx.Invoicing.Domain.Events;
 using Invx.Invoicing.Domain.ValueObjects;
 using Invx.SharedKernel.Domain.Primitives.Entities;
 using Invx.SharedKernel.Domain.Primitives.Errors;
@@ -107,7 +108,7 @@ public class Invoice : AggregateRoot
         TotalMoney = Money.Zero(currency);
         ViewCount = 0;
 
-        RaiseDomainEvent(new InvoiceCreatedDomainEvent(Id, TenantId, InvoiceNumber));
+        RaiseDomainEvent(new InvoiceCreatedDomainEvent(TenantId, Id, InvoiceNumber));
     }
 
     public static Result<Invoice> CreateDraft(
@@ -142,7 +143,7 @@ public class Invoice : AggregateRoot
         RecalculateTotals();
         IncrementVersion();
 
-        RaiseDomainEvent(new InvoiceLineItemAddedDomainEvent(Id, lineItem.Id));
+        RaiseDomainEvent(new InvoiceLineItemAddedDomainEvent(TenantId, Id, lineItem.Id));
 
         return Result.Success();
     }
@@ -158,9 +159,6 @@ public class Invoice : AggregateRoot
 
         _lineItems.Remove(lineItem);
         RecalculateTotals();
-        IncrementVersion();
-
-        RaiseDomainEvent(new InvoiceLineItemRemovedDomainEvent(Id, lineItemId));
     }
 
     public void UpdateLineItem(Guid lineItemId, Action<InvoiceLineItem> updateAction)
@@ -174,9 +172,6 @@ public class Invoice : AggregateRoot
 
         updateAction(lineItem);
         RecalculateTotals();
-        IncrementVersion();
-
-        RaiseDomainEvent(new InvoiceLineItemUpdatedDomainEvent(Id, lineItemId));
     }
 
     private void RecalculateTotals()
@@ -194,9 +189,6 @@ public class Invoice : AggregateRoot
         TotalMoney = SubtotalMoney
             .Subtract(TotalDiscountAmount)
             .Add(TotalTaxAmount);
-
-        RaiseDomainEvent(new InvoiceTotalsRecalculatedDomainEvent(Id, SubtotalMoney, TotalTaxAmount, TotalDiscountAmount, TotalMoney));
-        IncrementVersion();
     }
 
     public void SetCurrency(string currency, decimal exchangeRate = 1.0m)
@@ -249,22 +241,22 @@ public class Invoice : AggregateRoot
         LegalSequenceNumber = sequenceNumber ?? throw new ArgumentNullException(nameof(sequenceNumber));
     }
 
-    public void SetParentInvoice(Guid? parentInvoiceId)
+    public void SetParentInvoice(Guid parentInvoiceId)
     {
         ParentInvoiceId = parentInvoiceId;
-        RaiseDomainEvent(new InvoiceParentUpdatedDomainEvent(Id, parentInvoiceId));
+
+        RaiseDomainEvent(new InvoiceParentUpdatedDomainEvent(TenantId, Id, parentInvoiceId));
     }
 
-    public void SetOriginalInvoice(Guid? originalInvoiceId)
+    public void SetOriginalInvoice(Guid originalInvoiceId)
     {
         OriginalInvoiceId = originalInvoiceId;
-        RaiseDomainEvent(new InvoiceOriginalUpdatedDomainEvent(Id, originalInvoiceId));
+        RaiseDomainEvent(new InvoiceOriginalUpdatedDomainEvent(TenantId, Id, originalInvoiceId));
     }
 
     public void SetPublicNotes(string notes)
     {
         PublicNotes = notes;
-        RaiseDomainEvent(new InvoicePublicNotesUpdatedDomainEvent(Id, notes));
     }
 
     public void SetPrivateNotes(string notes)
@@ -288,7 +280,6 @@ public class Invoice : AggregateRoot
         ApprovedBy = approvedBy;
         ApprovedAt = status == ApprovalStatus.Approved ? DateTime.UtcNow : null;
         ApprovalNotes = notes;
-        RaiseDomainEvent(new InvoiceApprovalStatusUpdatedDomainEvent(Id, status, approvedBy, notes));
     }
 
     public void AddWorkflowStep(InvoiceWorkflowStep step)
@@ -297,10 +288,6 @@ public class Invoice : AggregateRoot
         if (!CanBeModified) throw new InvalidOperationException($"Cannot modify invoice in status: {Status}");
         
         _workflowSteps.Add(step);
-        
-        IncrementVersion();
-
-        RaiseDomainEvent(new InvoiceWorkflowStepAddedDomainEvent(Id, step.Id));
     }
 
     public void RemoveWorkflowStep(Guid stepId)
@@ -310,8 +297,6 @@ public class Invoice : AggregateRoot
         var step = _workflowSteps.FirstOrDefault(s => s.Id == stepId);
         if (step == null) throw new ArgumentException($"Workflow step not found: {stepId}");
         _workflowSteps.Remove(step);
-        IncrementVersion();
-        RaiseDomainEvent(new InvoiceWorkflowStepRemovedDomainEvent(Id, stepId));
     }
 
     public void UpdateWorkflowStep(Guid stepId, Action<InvoiceWorkflowStep> updateAction)
@@ -320,15 +305,12 @@ public class Invoice : AggregateRoot
         var step = _workflowSteps.FirstOrDefault(s => s.Id == stepId);
         if (step == null) throw new ArgumentException($"Workflow step not found: {stepId}");
         updateAction(step);
-        IncrementVersion();
-        RaiseDomainEvent(new InvoiceWorkflowStepUpdatedDomainEvent(Id, stepId));
     }
 
     public void AddDeliveryAttempt(InvoiceDeliveryAttempt attempt)
     {
         if (!CanBeModified) throw new InvalidOperationException($"Cannot modify invoice in status: {Status}");
         _deliveryAttempts.Add(attempt);
-        RaiseDomainEvent(new InvoiceDeliveryAttemptAddedDomainEvent(Id, attempt.Id));
     }
 
     public void RemoveDeliveryAttempt(Guid attemptId)
@@ -337,7 +319,6 @@ public class Invoice : AggregateRoot
         var attempt = _deliveryAttempts.FirstOrDefault(a => a.Id == attemptId);
         if (attempt == null) throw new ArgumentException($"Delivery attempt not found: {attemptId}");
         _deliveryAttempts.Remove(attempt);
-        RaiseDomainEvent(new InvoiceDeliveryAttemptRemovedDomainEvent(Id, attemptId));
     }
 
     public void UpdateDeliveryAttempt(Guid attemptId, Action<InvoiceDeliveryAttempt> updateAction)
@@ -346,8 +327,6 @@ public class Invoice : AggregateRoot
         var attempt = _deliveryAttempts.FirstOrDefault(a => a.Id == attemptId);
         if (attempt == null) throw new ArgumentException($"Delivery attempt not found: {attemptId}");
         updateAction(attempt);
-        IncrementVersion();
-        RaiseDomainEvent(new InvoiceDeliveryAttemptUpdatedDomainEvent(Id, attemptId));
     }
 
     public void MarkAsViewed()
@@ -362,7 +341,6 @@ public class Invoice : AggregateRoot
 
         SetApprovalStatus(ApprovalStatus.Approved, approvedBy, notes);
         ApprovedAt = DateTime.UtcNow;
-        IncrementVersion();
     }
 
     public void Reject(Guid rejectedBy, string notes = null)
@@ -372,7 +350,6 @@ public class Invoice : AggregateRoot
 
         SetApprovalStatus(ApprovalStatus.Rejected, rejectedBy, notes);
         ApprovedAt = DateTime.UtcNow;
-        IncrementVersion();
     }
 
     public void Void(Guid voidedBy, string notes = null)
@@ -381,23 +358,22 @@ public class Invoice : AggregateRoot
             throw new InvalidOperationException("Invoice is already voided");
 
         Status = InvoiceStatus.Voided;
-        AddDomainEvent(new InvoiceVoidedDomainEvent(Id, voidedBy, notes));
     }
 
     public void Cancel(Guid cancelledBy, string notes = null)
     {
         if (Status == InvoiceStatus.Cancelled)
             throw new InvalidOperationException("Invoice is already cancelled");
+
         Status = InvoiceStatus.Cancelled;
-        RaiseDomainEvent(new InvoiceCancelledDomainEvent(Id, cancelledBy, notes));
     }
 
     public void MarkAsPaid(DateTime paidAt, string paymentReference = null)
     {
         if (Status == InvoiceStatus.Paid)
             throw new InvalidOperationException("Invoice is already paid");
+
         Status = InvoiceStatus.Paid;
-        RaiseDomainEvent(new InvoicePaidDomainEvent(Id, paidAt, paymentReference));
     }
 
     public void MarkAsDraft()
@@ -405,16 +381,18 @@ public class Invoice : AggregateRoot
         if (Status == InvoiceStatus.Draft)
             throw new InvalidOperationException("Invoice is already in draft status");
         Status = InvoiceStatus.Draft;
-        RaiseDomainEvent(new InvoiceMarkedAsDraftDomainEvent(Id));
     }
 
-    public void MarkAsSent(Guid sentBy, DateTime sentAt, string deliveryMethod, string deliveryAddress)
+    public void MarkAsSent(
+        Guid sentBy,
+        DateTime sentAt,
+        string deliveryMethod,
+        string deliveryAddress)
     {
         if (Status == InvoiceStatus.Sent)
             throw new InvalidOperationException("Invoice is already sent");
 
         Status = InvoiceStatus.Sent;
-        RaiseDomainEvent(new InvoiceSentDomainEvent(Id, sentBy, sentAt, deliveryMethod, deliveryAddress));
     }
 
     public void SetIssueDate(DateTime issueDate)
