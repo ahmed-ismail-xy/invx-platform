@@ -1,0 +1,132 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BFA29112-4833-4C8B-8CD7-69C52803B493}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{299B3932-27DB-4BFC-BA3F-C8B231A485CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx", "Invx", "{B8A39F84-D380-46D9-8EEC-A49818CF4377}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.Invoicing", "Invx.Invoicing", "{C7A0679A-4B1D-4A1A-AB1B-AE637583072D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.Invoicing.Application", "src\Invx.Invoicing\Invx.Invoicing.Application\Invx.Invoicing.Application.csproj", "{4F308CFB-754F-4CDA-973B-C23F1136F063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.Invoicing.Infrastructure", "src\Invx.Invoicing\Invx.Invoicing.Infrastructure\Invx.Invoicing.Infrastructure.csproj", "{FE75E8E5-3F49-43FB-991C-5AF13B809C42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.Invoicing.Api", "src\Invx.Invoicing\Invx.Invoicing.Api\Invx.Invoicing.Api.csproj", "{3E60B235-BBBD-4B90-8837-79BA17034ADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.Invoicing.Domain", "src\Invx.Invoicing\Invx.Invoicing.Domain\Invx.Invoicing.Domain.csproj", "{7F5510D7-7F02-40B8-87EC-40111E9298BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.CustomerManagement", "Invx.CustomerManagement", "{4DC0296A-F276-4A3C-8579-0017823ED823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.Api", "src\Invx\Invx.Api\Invx.Api.csproj", "{38A422E8-FA82-433A-8D3C-8036D49C7482}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.Billing", "Invx.Billing", "{9A30E926-D434-4AE1-B06C-ED98FE3EED83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.Notifications", "Invx.Notifications", "{00C4CA97-95B8-409F-8C98-905B9C91B546}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.Authentication", "Invx.Authentication", "{9F40151C-514E-4188-8B91-CC8A916ECEAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.TenantManagement", "Invx.TenantManagement", "{DC2ED911-8190-456B-8F37-4A6C3AFDAE56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.Reporting", "Invx.Reporting", "{8A8F9590-8EF5-4042-B477-7BE3931C9EBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Invx.SharedKernel", "Invx.SharedKernel", "{460B7FEA-FDEF-4CEF-9625-EDB50085DE58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.SharedKernel.Domain", "src\Invx.SharedKernel\Invx.SharedKernel.Domain\Invx.SharedKernel.Domain.csproj", "{16782C7F-3D87-49AE-98DA-399197AED052}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.SharedKernel.Application", "src\Invx.SharedKernel\Invx.SharedKernel.Application\Invx.SharedKernel.Application.csproj", "{F0974228-0613-4B1A-9CAC-78E7B610CEDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.SharedKernel.Infrastructure", "src\Invx.SharedKernel\Invx.SharedKernel.Infrastructure\Invx.SharedKernel.Infrastructure.csproj", "{CEDF80B2-27DC-4DDE-8758-92E41AA8FEAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invx.SharedKernel.Api", "src\Invx.SharedKernel\Invx.SharedKernel.Api\Invx.SharedKernel.Api.csproj", "{C2241F54-58BA-43AB-BF8A-3A558B68A9A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "digrams", "digrams", "{AE1D78FA-55A0-4A45-B80C-3220670F9956}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\Invx_Invoicing_database_erd.mermaid = ..\..\..\Downloads\Invx_Invoicing_database_erd.mermaid
+		..\..\..\Downloads\Invx_Invoicing_database_erd.svg = ..\..\..\Downloads\Invx_Invoicing_database_erd.svg
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F308CFB-754F-4CDA-973B-C23F1136F063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F308CFB-754F-4CDA-973B-C23F1136F063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F308CFB-754F-4CDA-973B-C23F1136F063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F308CFB-754F-4CDA-973B-C23F1136F063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE75E8E5-3F49-43FB-991C-5AF13B809C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE75E8E5-3F49-43FB-991C-5AF13B809C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE75E8E5-3F49-43FB-991C-5AF13B809C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE75E8E5-3F49-43FB-991C-5AF13B809C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E60B235-BBBD-4B90-8837-79BA17034ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E60B235-BBBD-4B90-8837-79BA17034ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E60B235-BBBD-4B90-8837-79BA17034ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E60B235-BBBD-4B90-8837-79BA17034ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F5510D7-7F02-40B8-87EC-40111E9298BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F5510D7-7F02-40B8-87EC-40111E9298BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F5510D7-7F02-40B8-87EC-40111E9298BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F5510D7-7F02-40B8-87EC-40111E9298BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38A422E8-FA82-433A-8D3C-8036D49C7482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38A422E8-FA82-433A-8D3C-8036D49C7482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38A422E8-FA82-433A-8D3C-8036D49C7482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A422E8-FA82-433A-8D3C-8036D49C7482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16782C7F-3D87-49AE-98DA-399197AED052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16782C7F-3D87-49AE-98DA-399197AED052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16782C7F-3D87-49AE-98DA-399197AED052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16782C7F-3D87-49AE-98DA-399197AED052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0974228-0613-4B1A-9CAC-78E7B610CEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0974228-0613-4B1A-9CAC-78E7B610CEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0974228-0613-4B1A-9CAC-78E7B610CEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0974228-0613-4B1A-9CAC-78E7B610CEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDF80B2-27DC-4DDE-8758-92E41AA8FEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDF80B2-27DC-4DDE-8758-92E41AA8FEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDF80B2-27DC-4DDE-8758-92E41AA8FEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDF80B2-27DC-4DDE-8758-92E41AA8FEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2241F54-58BA-43AB-BF8A-3A558B68A9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2241F54-58BA-43AB-BF8A-3A558B68A9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2241F54-58BA-43AB-BF8A-3A558B68A9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2241F54-58BA-43AB-BF8A-3A558B68A9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8A39F84-D380-46D9-8EEC-A49818CF4377} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C7A0679A-4B1D-4A1A-AB1B-AE637583072D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{4F308CFB-754F-4CDA-973B-C23F1136F063} = {C7A0679A-4B1D-4A1A-AB1B-AE637583072D}
+		{FE75E8E5-3F49-43FB-991C-5AF13B809C42} = {C7A0679A-4B1D-4A1A-AB1B-AE637583072D}
+		{3E60B235-BBBD-4B90-8837-79BA17034ADD} = {C7A0679A-4B1D-4A1A-AB1B-AE637583072D}
+		{7F5510D7-7F02-40B8-87EC-40111E9298BC} = {C7A0679A-4B1D-4A1A-AB1B-AE637583072D}
+		{4DC0296A-F276-4A3C-8579-0017823ED823} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{38A422E8-FA82-433A-8D3C-8036D49C7482} = {B8A39F84-D380-46D9-8EEC-A49818CF4377}
+		{9A30E926-D434-4AE1-B06C-ED98FE3EED83} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{00C4CA97-95B8-409F-8C98-905B9C91B546} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9F40151C-514E-4188-8B91-CC8A916ECEAA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DC2ED911-8190-456B-8F37-4A6C3AFDAE56} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8A8F9590-8EF5-4042-B477-7BE3931C9EBA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{460B7FEA-FDEF-4CEF-9625-EDB50085DE58} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{16782C7F-3D87-49AE-98DA-399197AED052} = {460B7FEA-FDEF-4CEF-9625-EDB50085DE58}
+		{F0974228-0613-4B1A-9CAC-78E7B610CEDF} = {460B7FEA-FDEF-4CEF-9625-EDB50085DE58}
+		{CEDF80B2-27DC-4DDE-8758-92E41AA8FEAC} = {460B7FEA-FDEF-4CEF-9625-EDB50085DE58}
+		{C2241F54-58BA-43AB-BF8A-3A558B68A9A0} = {460B7FEA-FDEF-4CEF-9625-EDB50085DE58}
+		{AE1D78FA-55A0-4A45-B80C-3220670F9956} = {BFA29112-4833-4C8B-8CD7-69C52803B493}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8507C065-525E-451D-8B3D-868A1306D55A}
+	EndGlobalSection
+EndGlobal
