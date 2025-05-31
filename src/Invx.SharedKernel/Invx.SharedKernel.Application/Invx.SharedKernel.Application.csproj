@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+	<ItemGroup>
+		<PackageReference Include="MediatR" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+		<PackageReference Include="FluentValidation" />
+		<PackageReference Include="FluentValidation.AspNetCore" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+		<PackageReference Include="AutoMapper" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Invx.SharedKernel.Domain\Invx.SharedKernel.Domain.csproj" />
+	</ItemGroup>
+
+</Project>
