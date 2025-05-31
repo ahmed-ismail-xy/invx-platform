@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Invx.SharedKernel.Api\Invx.SharedKernel.Api.csproj" />
+  </ItemGroup>
+
+</Project>

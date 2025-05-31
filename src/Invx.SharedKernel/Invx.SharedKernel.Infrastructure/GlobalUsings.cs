@@ -1,0 +1,1 @@
+﻿global using Invx.SharedKernel.Domain.Primitives.Errors;
